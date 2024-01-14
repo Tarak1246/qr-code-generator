@@ -16,8 +16,8 @@ app.set('view engine', 'ejs');
 const db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'Tarak128@mysql',
-  database: 'qr_generator',
+  password: '***',
+  database: '****',
 });
 db.connect((err) => {
   if (err) {
