@@ -1,0 +1,149 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>+
+    <style>
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+                monospace;
+        }
+
+        .App {
+            text-align: center;
+        }
+
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+
+        .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+        }
+
+        .App-link {
+            color: #61dafb;
+        }
+
+        @keyframes App-logo-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            background: #bdc3c7;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2c3e50, #bdc3c7);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+
+        form {
+            background-color: white;
+            border-radius: 5px;
+            width: 550px;
+            margin: 20px auto;
+            padding: 20px;
+            /* height: 600px; */
+        }
+
+        .form-body {
+            text-align: left;
+            padding: 20px 10px;
+        }
+
+        .form-body>* {
+            padding: 5px;
+        }
+
+        .form__label {
+            width: 40%;
+        }
+
+        .form_input {
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <nav class="bg-dark navbar-dark navbar">
+                <div class="row col-12 d-flex justify-content-center text-white">
+                    <h3>Registration</h3>
+                </div>
+            </nav>
+            <form action="/submit_form" method="post">
+                <div class="form-body">
+                    <div class="userid">
+                        <label class="form__label" htmlFor="userid">
+                            UID
+                        </label>
+                        <input class="form__input" type="text" name="userid"
+                            id="userid" placeholder="UID" />
+                    </div>
+                <% formFields.forEach(field=> { %>
+                        <div class="<%= field.name %>">
+                            <label class="form__label" htmlFor="<%= field.name %>">
+                                <%= field.label %>
+                            </label>
+                            <input class="form__input" type="<%= field.type %>" name="<%= field.name %>"
+                                id="<%= field.name %>" placeholder="<%= field.name %>" />
+                        </div>
+                    <% }); %>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
